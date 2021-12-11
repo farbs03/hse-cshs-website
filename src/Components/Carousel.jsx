@@ -26,7 +26,7 @@ const Carousel = () => {
         },
         {
             Name: "Anish Kambhampati", 
-            Quote: "The combination of CS and CSHS has masterfully prepared me for a future that is increasingly dependent upon technology.",
+            Quote: "The combination of CS and CSHS has masterfully prepared me for a future that is increasingly dependent upon technological aptitude.",
             Image: AnishProfile,
             Grade: 12
         }
@@ -35,27 +35,28 @@ const Carousel = () => {
     const mobile = useMediaQuery('(max-width: 900px)')
 
     return (
-        <div style={{maxWidth: "1200px", margin: "10px auto"}}>
-            <OwlCarousel className='owl-theme' loop margin={mobile ? 0 : 10} slideBy autoplay autoplaySpeed={2000} dots={false} style={{margin: "10px auto"}} items={mobile ? 1 : 3}>
+        <div class="container py-10" style={{margin: "10px auto"}}>
+            <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 font-bold text-center">Testimonials</h1>
+            <OwlCarousel className='owl-theme' loop margin={mobile ? 0 : 8} slideBy autoplay autoplaySpeed={2000} dots={false} style={{margin: "0px auto", padding: "10px"}} items={mobile ? 1 : 3}>
                 {quotes.map((quote, idx) => (
-                    <Paper style={{borderRadius: "15px", maxWidth: "400px", padding: "20px", margin: mobile ? "25px auto" : "25px 20px", boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"}} className="item">
+                    <div key={idx} style={{margin: mobile ? "25px auto" : "25px 10px", maxWidth: "500px"}} class="rounded-xl bg-white px-8 py-6">
                         <div style={{marginBottom: "10px", textAlign: "left"}}>
-                            <Typography style={{color: "rgba(0, 0, 0, 0.7)", fontSize: "14px"}}>
+                            <p class="leading-relaxed text-base text-gray-500">
                                 <span style={{fontSize: "20px", fontWeight: "bold", color: "#1890ff", marginRight: "2px"}}>"</span>
                                 {quote.Quote}
                                 <span style={{fontSize: "20px", fontWeight: "bold", color: "#1890ff", marginLeft: "2px"}}>"</span>
-                            </Typography>
+                            </p>
                         </div>
                         <div style={{display: "flex", alignItems: "center", flexWrap: "flex"}}>
                             <div style={{width: "40px", height: "40px", background: "#ccc", borderRadius: "50%", marginRight: "10px"}}>
                                 <img src={quote.Image} style={{width: "100%", height: "100%", borderRadius: "50%"}} alt="profile" />
                             </div>
                             <div style={{textAlign: "left"}}>
-                                <Typography style={{fontSize: '14px', color: "rgba(0, 0, 0, 0.85)"}}>{quote.Name}</Typography>
-                                <Typography style={{fontSize: '12px', color: "rgba(0, 0, 0, 0.7)"}}>Grade {quote.Grade}</Typography>
+                                <p style={{fontSize: '14px', color: "rgba(0, 0, 0, 0.85)"}}>{quote.Name}</p>
+                                <p style={{fontSize: '12px', color: "rgba(0, 0, 0, 0.7)"}}>Grade {quote.Grade}</p>
                             </div>
                         </div>
-                    </Paper>
+                    </div>
                 ))}
             </OwlCarousel>
         </div>
